@@ -5,7 +5,7 @@ public:
         vector<int> ans(nums.size(),-1);
         stack<int> s;
         for(int i=2*n-1;i>=0;i--){
-            while(s.size()>0 && nums[s.top()]<=nums[i%n]){
+            while(s.size()>0 && nums[i%n]>=nums[s.top()]){
                 s.pop();
             }
             if(s.empty()){
