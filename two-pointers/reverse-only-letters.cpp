@@ -3,10 +3,10 @@ public:
     string reverseOnlyLetters(string s) {
         int st=0,end=s.size()-1;
         while(st<=end){
-            if(!(s[st]>=65 && s[st]<=122)){
+            if(!isalpha(s[st])){
                 st++;
             }
-            else if(!(s[end]>=65 && s[end]<=122)){
+            else if(!isalpha(s[end])){
                 end--;
             }
             else{
