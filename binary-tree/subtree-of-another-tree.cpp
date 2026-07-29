@@ -12,13 +12,16 @@
 class Solution {
 public:
     bool isIdentical(TreeNode* root, TreeNode* subRoot){
-        bool isLeftSame=isSubtree(root->left,subRoot->left);
-        bool isRightSame=isSubtree(root->right,subRoot->right);
+        if(root == NULL || subRoot == NULL) return root==subRoot;
+
+        bool isLeftSame=isIdentical(root->left,subRoot->left);
+        bool isRightSame=isIdentical(root->right,subRoot->right);
 
         return (isLeftSame && isRightSame && (root->val == subRoot->val));
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
         if(root == NULL || subRoot == NULL) return root==subRoot;
+
         if(root->val==subRoot->val && isIdentical(root,subRoot))    return true;
 
         return (isSubtree(root->left,subRoot)
